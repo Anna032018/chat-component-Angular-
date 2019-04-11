@@ -1,0 +1,51 @@
+<div class="app">
+    <div class="left-sidebar">
+        <section class="join-chat">
+            <h4>User name</h4>
+            <form [formGroup]="chatForm" class="left-form">
+
+                <input class="message-input" [(ngModel)]="user" formControlName="user" id="user" name="user"
+                       placeholder="Enter your username" type="text"/>
+
+                <button [ngClass]="{'button-disabled' : !ctrlUser.valid}" (click)="addPlaceholder()" >
+                  Start chat button
+                </button>
+
+            </form>
+            <div class="vb-errors-list">
+                <ul *ngIf="ctrlUser.dirty && !ctrlUser.valid">
+                    <li *ngIf="ctrlUser.hasError('required')">User required</li>
+                    <li *ngIf="ctrlUser.hasError('minlength')">User must have at least 3 characters.</li>
+                    <li *ngIf="ctrlUser.hasError('maxlength')">Not more than 20 characters are allowed</li>
+                    <li *ngIf="ctrlUser.hasError('pattern')">User should contains only letters</li>
+                </ul>
+                    <ul *ngIf="errMessage">
+                    <li>{{errMessage}}</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <main class="chat-window">
+        <header class="chat-header">
+            <h4>Chat</h4>
+        </header>
+        <section class="chat-session">
+            <ul class="message-list">
+                <li *ngFor="let message of messages" class="user-message" [ngClass]="message.isUser ? 'user-color' : 'bot-color'">
+                    <div class="author">{{(message.isUser ? user : 'Bot') + ':' }}</div>
+                    <div [ngClass]="{'bot' : !message.isUser}"> {{ message.text }}</div>
+                </li>
+            </ul>
+        </section>
+        <footer class="chat-footer">
+            <input [(ngModel)]="message" [ngClass]="{'button-disabled' : !ctrlUser.valid || !placeholder}" (click)= "errMessage ='';"
+                   class="message-input" name="message" placeholder="{{placeholder}}" type="text"/>
+
+            <div class="footer-buttons">
+                <button (click)="generateMessage()" [ngClass]="{'button-disabled' : !ctrlUser.valid || !placeholder || !message}">Send</button>
+                <button [ngClass]="{'button-disabled' : !ctrlUser.valid || !placeholder}" (click)= "messages=[];user=''">Close</button>
+            </div>
+        </footer>
+    </main>
+</div>

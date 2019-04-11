@@ -1,0 +1,156 @@
+.app {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  border: 1px solid #ccc;
+  color: #333;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+input[type="text"] {
+  color: #110509;
+  border-radius: 0;
+  text-indent: 10px;
+}
+
+.left-form {
+  height: 200px;
+}
+
+.user-color {
+  color: #110509;
+}
+
+.bot-color {
+  color: rgba(116, 117, 139, 0.86);
+}
+
+.left-sidebar section {
+  margin-bottom: 20px;
+}
+
+.left-sidebar {
+  flex-basis: 20%;
+  flex-shrink: 0;
+  flex-grow: 0;
+  background-color: #888888;
+  color: #fff;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-sidebar button {
+  width: 100%;
+}
+
+.chat-window {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chat-header, .chat-footer {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.chat-header {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px;
+  height: 40px;
+  background-color: #cccccc;
+}
+
+.bot {
+  -webkit-transform:rotateY(180deg);
+}
+
+.chat-session {
+  flex-grow: 1;
+  padding: 10px 20px;
+  overflow-y: auto;
+}
+
+.author {
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.user-message {
+  display:flex;
+  margin-top: 5px;
+}
+
+.user-message span {
+  display: block;
+}
+
+.chat-footer {
+  padding: 0;
+  border-top: 1px solid #ccc;
+  height: 100px;
+  flex-direction: column;
+}
+.button-disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+
+.vb-errors-list {
+  user-select: none;
+  padding-top: 4px;
+  position: relative;
+  font-family: Lato, sans-serif;
+  color: #e6233a;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  line-height: 18px;
+  display: flex;
+}
+
+.vb-errors-list ul {
+  padding: 0;
+  width: 100%;
+}
+
+.vb-errors-list ul li {
+  text-align: center;
+}
+
+button {
+  background-color: #cccccc;
+  width: 160px;
+  min-height: 40px;
+}
+
+.footer-buttons {
+  display: flex;
+  background-color: #888888;
+  justify-content: space-evenly;
+  width: 100%;
+  padding-top: 10px;
+  height: 50px;
+  padding-bottom: 10px;
+}
+
+.message-input {
+  width: 100%;
+  border: none;
+  margin-bottom: 0;
+  height: 38px;;
+}
+
